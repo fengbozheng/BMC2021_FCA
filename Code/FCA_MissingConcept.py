@@ -6,7 +6,7 @@ Created on Mon Feb 15 14:19:59 2021
 @author: fengbozheng
 """
 ###############################################################################
-#Step1
+#Step1: Mappings
 ###############################################################################
 import csv
 replaceMap = {} #key will be replaced by value while performing FCA on sequences
@@ -38,7 +38,7 @@ for row2 in reader2:
                 replaceMapReverse[row2[0]].append(items)
 file2.close()
 ############################################################################### 
-#Step2 
+#Step2 Intersection & Associative Role Comparison
 ############################################################################### 
 import csv
 import string
@@ -117,7 +117,7 @@ def subList(a,b): #check if a in b
         return False
     else:
         return True    
-#########################
+############################################################################### 
 import csv
 #import itertools
 import string
@@ -198,7 +198,9 @@ def roleIntersection(attributeLB, attributeLA):
         if any(checkSingleGeneral(singleAttributeA,y) for y in attributeLB):
             intersection.append(singleAttributeB)
     return(list(set(intersection)))
-###############################################################################
+############################################################################### 
+#Step3: Detecting Missing Concepts
+############################################################################### 
 roots = list(Dirgraph2.successors("C2991")) 
 for root in roots:
     print(root)
